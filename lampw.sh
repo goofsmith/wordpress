@@ -2,7 +2,6 @@
 
 # Update the system
 sudo apt update
-sudo apt upgrade -y
 
 # Install Apache
 sudo apt install apache2 -y
@@ -57,7 +56,7 @@ sudo rm /var/www/html/wp-content/plugins/all-in-one-wp-migration.zip
 sudo chown -R www-data:www-data /var/www/html/wp-content/plugins/all-in-one-wp-migration
 
 # Install the All-in-One WP Migration Unlimited Extension plugin
-sudo wget -O /var/www/html/wp-content/plugins/all-in-one-wp-migration-unlimited-extension.zip https://drive.google.com/uc?export=download&id=1ZDpiXeA5IxGoNrxAn1I3aq_8-j2B8eio
+sudo wget -O /var/www/html/wp-content/plugins/all-in-one-wp-migration-unlimited-extension.zip http://cct.com.tm/wp-cntent/uploads/all-in-one-wp-migration-unlimited-extension.2.49.zip
 sudo unzip /var/www/html/wp-content/plugins/all-in-one-wp-migration-unlimited-extension.zip -d /var/www/html/wp-content/plugins/
 sudo rm /var/www/html/wp-content/plugins/all-in-one-wp-migration-unlimited-extension.zip
 sudo chown -R www-data:www-data /var/www/html/wp-content/plugins/all-in-one-wp-migration-unlimited-extension
@@ -66,4 +65,4 @@ sudo chown -R www-data:www-data /var/www/html/wp-content/plugins/all-in-one-wp-m
 sudo rm latest.tar.gz
 sudo rm -rf wordpress/
 
-echo "LAMP stack, WordPress, and All-in-One WP Migration plugins installation completed!"
+echo "Veni, vidi, vici - Пришел, увидел, победил!"
