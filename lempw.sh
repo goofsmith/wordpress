@@ -10,15 +10,12 @@ sudo apt install nginx -y
 # Install MySQL
 sudo apt install mysql-server -y
 
-# Secure MySQL installation
-sudo mysql_secure_installation
-
-# Install PHP and required modules
-sudo apt install php-fpm php-mysql php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip -y
+# Install PHP 8.1 and required modules
+sudo apt install php8.1-fpm php8.1-mysql php8.1-curl php8.1-gd php8.1-mbstring php8.1-xml php8.1-xmlrpc php8.1-soap php8.1-intl php8.1-zip -y
 
 # Configure PHP-FPM
-sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php/7.4/fpm/php.ini
-sudo systemctl restart php7.4-fpm
+sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php/8.1/fpm/php.ini
+sudo systemctl restart php8.1-fpm
 
 # Configure NGINX
 sudo rm /etc/nginx/sites-available/default
@@ -31,8 +28,7 @@ sudo systemctl restart nginx
 sudo tee /etc/nginx/sites-available/wordpress <<EOF
 server {
     listen 80;
-    server_name your_domain.com;
-
+    server_name localhost;
     root /var/www/html;
     index index.php;
 
@@ -42,7 +38,7 @@ server {
 
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
         fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
         include fastcgi_params;
     }
